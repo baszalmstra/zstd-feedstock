@@ -4,8 +4,6 @@ set -exo pipefail
 
 export CFLAGS="${CFLAGS} -O3 -fPIC"
 
-make -j$CPU_COUNT -C contrib/pzstd all
-
 declare -a _CMAKE_EXTRA_CONFIG
 
 if [[ ${HOST} =~ .*linux.* ]]; then
