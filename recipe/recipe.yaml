@@ -144,7 +144,8 @@ outputs:
         - ${{ compiler('cxx') }}
         - make
       host:
-        # the bootstrap compilers used by this feedstock do not export the C++ runtime
+        # conda_build_config.yaml maps compiler('cxx') to gcc_bootstrap, which has no
+        # run_exports (gxx exports libstdcxx/libgcc), so the C++ runtime is listed here.
         - if: linux
           then:
             - libstdcxx ${{ cxx_compiler_version }}.*
